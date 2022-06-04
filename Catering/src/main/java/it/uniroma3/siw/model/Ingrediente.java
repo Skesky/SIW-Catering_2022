@@ -1,9 +1,14 @@
 package it.uniroma3.siw.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Ingrediente {
@@ -17,6 +22,9 @@ public class Ingrediente {
 	private String origine;
 	
 	private String descrizione;
+	
+	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	List<Ingrediente> ingredienti;
 
 	public Long getId() {
 		return id;
