@@ -22,6 +22,8 @@ public class Buffet {
 	@NotBlank()
 	private String nome;
 	
+	private String categoria;
+	
 	private String descrizione;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
@@ -58,6 +60,14 @@ public class Buffet {
 
 	public void setPiatti(List<Piatto> piatti) {
 		this.piatti = piatti;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 	
 	

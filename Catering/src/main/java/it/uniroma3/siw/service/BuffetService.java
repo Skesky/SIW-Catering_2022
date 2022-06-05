@@ -25,4 +25,11 @@ public class BuffetService {
 	public List<Buffet> findAllBuffet() {
 		return (List<Buffet>) buffetRepo.findAll();
 	}
+	
+	@Transactional
+	public List<Buffet> buffetPerCategoria(String Categoria){
+		return buffetRepo.findByCategoria(Categoria);
+	}
 }
+
+
