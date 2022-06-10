@@ -1,16 +1,15 @@
 #header{
 	height: 50%;
 	border: solid 3px black;
-	display: flex;
-	flex-direction: column;
+	margin: 0;
 }
 
 .pippo{
-	height: 50%; 
+	display: flex;
+	
 }
 
 img{
- width: 50%;
 display: inline-block;
 }
 

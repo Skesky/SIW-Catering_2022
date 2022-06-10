@@ -26,6 +26,11 @@ public class ChefService {
 	 * How to find all chef's buffet???
 	 */
 	
+	//@Transactional
+	//public List<Buffet> getChetBuffet(Chef c){
+	//	return chefRepo.getAllChefBuffet(c);
+	//}
+		
 	@Transactional
 	public List<Buffet> getChetBuffet(Chef chef){
 		return chefRepo.getAllChefBuffet(chef);

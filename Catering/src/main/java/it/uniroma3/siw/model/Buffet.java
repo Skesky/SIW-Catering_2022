@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
@@ -19,12 +20,15 @@ public class Buffet {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotBlank()
+	@NotBlank
 	private String nome;
-	
+	@NotBlank
 	private String categoria;
-	
+	@NotBlank
 	private String descrizione;
+	
+	@ManyToOne
+	private Chef chef;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
 	fetch = FetchType.EAGER)

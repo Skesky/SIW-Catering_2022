@@ -30,6 +30,11 @@ public class BuffetService {
 	public List<Buffet> buffetPerCategoria(String Categoria){
 		return buffetRepo.findByCategoria(Categoria);
 	}
+	
+	@Transactional
+	public List<Buffet> buffetPerChef(String nomeChef, String cognomeChef){
+		return buffetRepo.buffetPerChef(nomeChef, cognomeChef);
+	}
 }
 
 
