@@ -1,16 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-	<meta charset="UTF-8" />
-	<title>catering</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/index.css" rel="stylesheet">
+	<title>Catering</title>
 </head>
+
 <body>
-	<div id="header">
-	<div id="pippo">
-		<img  alt="immagine" src="/image/servizio-catering.jpg" width="100%" >
+	<img alt="background" src="/image/servizio-catering.jpg">
+	<div class="flex-container">
+
+		<h1 id="a">Catering Service</h1>
+		<ul class="list">
+			<li>
+				<a class="link" th:href="@{/login}">Accedi</a>
+			</li>
+			<li>
+				<a class="link" th:href="@{/register}">Registrati</a>
+			</li>
+			<li>
+				<a class="link" th:href="@{/adminWelcomePage}">Admin page</a>
+			</li>
+			<li>
+				<a class="link" th:href="@{/welcomePage}">User page</a>
+			</li>
+			<li>
+				<a class="link" th:href="@{/explore}">Explore</a>
+			</li>
+			<li>
+				<a class="link" th:href="@{/buffet}">Buffet</a>
+			</li>
+		</ul>
+		
 	</div>
-	</div>
-	
 </body>
+
 </html>
+
+  

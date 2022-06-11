@@ -31,7 +31,7 @@ public class AuthenticationController {
 	public String showRegisterForm (Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("credentials", new Credentials());
-		return "registerUser";
+		return "registerForm";
 	}
 	
 	@RequestMapping(value = "admin/login", method = RequestMethod.GET) 
@@ -76,7 +76,7 @@ public class AuthenticationController {
             // set the user and store the credentials;
             // this also stores the User, thanks to Cascade.ALL policy
             credentials.setUser(user);
-            credentialsService.saveCredentials(credentials);
+            //credentialsService.saveCredentials(credentials);
             return "registrationSuccessful";
         }
         return "registerUser";

@@ -1,0 +1,45 @@
+<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/login.css" rel="stylesheet">
+	<title>Catering</title>
+</head>
+
+<body>
+	<div class="flex-container">
+		<form th:action="@{/register}" method="post">
+			<div class="box">
+			<h1 id="l-title" th:text="#{header.register}">Registrati</h1>
+				<div class="item">
+					<span th:text="#{register-form.name}">Nome:</span>
+					<span><input type="text" th:placeholder="#{register-form-placeholder.name}"required
+									th:field="${user.nome}"/> </span>
+				</div>
+				<div class="item">
+					<span th:text="#{register-form.surname}">Cognome:</span>
+					<span><input type="text" th:placeholder="#{register-form-placeholder.surname}"required
+									th:field="${user.cognome}"/> </span>
+				</div>
+				<div class="item">
+					<span th:text="#{register-form.username}">Username:</span>
+					<span><input type="text" th:placeholder="#{register-form-placeholder.username}"required
+									th:field="${credentials.username}"/> </span>
+				</div>
+				<div class="item">
+					<span th:text="#{register-form.password}">Password:</span>
+					<span><input type="password" th:placeholder="#{register-form-placeholder.password}"required
+									th:field="${credentials.password}"/> </span>
+				</div>
+				<div class="item">
+					<span><button type="submit" th:text="#{register-form.button}">Registrati</button></span>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
+
+  
