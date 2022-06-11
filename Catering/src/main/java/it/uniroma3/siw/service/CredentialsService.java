@@ -14,8 +14,8 @@ import it.uniroma3.siw.repository.CredentialRepository;
 @Service
 public class CredentialsService {
 	
-	 	//@Autowired
-	    //protected PasswordEncoder passwordEncoder;
+	 	@Autowired
+	   protected PasswordEncoder passwordEncoder;
 
 		@Autowired
 		protected CredentialRepository credentialsRepository;
@@ -32,11 +32,11 @@ public class CredentialsService {
 			return result.orElse(null);
 		}
 			
-	   // @Transactional
-	   //public Credentials saveCredentials(Credentials credentials) {
-	   //     credentials.setRole(Credentials.DEFAULT_ROLE);
-	   //     credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
-	   //     return this.credentialsRepository.save(credentials);
-	   // }
+	   @Transactional
+	   public Credentials saveCredentials(Credentials credentials) {
+	       credentials.setRole(Credentials.DEFAULT_ROLE);
+	        credentials.setPassword(this.passwordEncoder.encode(credentials.getPassword()));
+	        return this.credentialsRepository.save(credentials);
+	    }
 
 }

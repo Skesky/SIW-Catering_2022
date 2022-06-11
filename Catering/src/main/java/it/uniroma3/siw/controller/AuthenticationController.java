@@ -36,10 +36,10 @@ public class AuthenticationController {
 	
 	@RequestMapping(value = "admin/login", method = RequestMethod.GET) 
 	public String showAdminLoginForm (Model model) {
-		return "login";
+		return "admin/login";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET) 
+	@RequestMapping(value = "/loginForm", method = RequestMethod.GET) 
 	public String showLoginForm (Model model) {
 		return "loginForm";
 	}
@@ -77,7 +77,7 @@ public class AuthenticationController {
             // this also stores the User, thanks to Cascade.ALL policy
             credentials.setUser(user);
             //credentialsService.saveCredentials(credentials);
-            return "registrationSuccessful";
+            return "welcomePage";
         }
         return "registerUser";
     }
