@@ -1,5 +1,6 @@
 package it.uniroma3.siw.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Credentials {
 	@Column(nullable = false)
 	private String role;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 	
 	public Long getId() {

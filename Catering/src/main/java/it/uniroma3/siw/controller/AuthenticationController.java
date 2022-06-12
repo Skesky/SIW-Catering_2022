@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,12 +35,9 @@ public class AuthenticationController {
 		return "registerForm";
 	}
 	
-	@RequestMapping(value = "admin/login", method = RequestMethod.GET) 
-	public String showAdminLoginForm (Model model) {
-		return "admin/login";
-	}
 	
-	@RequestMapping(value = "/loginForm", method = RequestMethod.GET) 
+	//@RequestMapping(value = "/login", method = RequestMethod.GET) 
+	@GetMapping("/login")
 	public String showLoginForm (Model model) {
 		return "loginForm";
 	}
@@ -49,13 +47,14 @@ public class AuthenticationController {
 		return "index";
 	}
 	
-    @RequestMapping(value = "/default", method = RequestMethod.GET)
+    //@RequestMapping(value = "/default", method = RequestMethod.GET)
+	@GetMapping("/default")
     public String defaultAfterLogin(Model model) {
         
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
     	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            return "admin/welcomePage";
+            return "admin/adminWelcomePage";
         }
         return "welcomePage";
     }
@@ -76,8 +75,8 @@ public class AuthenticationController {
             // set the user and store the credentials;
             // this also stores the User, thanks to Cascade.ALL policy
             credentials.setUser(user);
-            //credentialsService.saveCredentials(credentials);
-            return "welcomePage";
+            credentialsService.saveCredentials(credentials);
+            return "/loginForm";
         }
         return "registerUser";
     }

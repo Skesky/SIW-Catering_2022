@@ -10,15 +10,15 @@
 <body>
 	<div class="flex-container">
 		<h1 id="l-title">Login</h1>
-		<form th:action="@{/login}" method="POST">
+		<form th:action="@{/login}" method="POST" > 
 			<div class="box">
 			<div class="item">
 				<span>Username:</span>
-				<span><input name="username" type="text"/> </span>
+				<span><input name="username" type="text" required/> </span>
 			</div>
 			<div class="item">
 				<span>Password:</span>
-				<span><input name="password" type="password"/> </span>
+				<span><input name="password" type="password" required/> </span>
 			</div>
 			<div class="item">
 				<span><button type="submit">Login</button></span>
