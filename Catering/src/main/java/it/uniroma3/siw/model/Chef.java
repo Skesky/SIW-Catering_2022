@@ -23,7 +23,7 @@ public class Chef {
 	
 	private String cognome;
 	
-	private String nazionalitá;
+	private String nazionalita;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	private List<Buffet> buffets;
@@ -52,12 +52,12 @@ public class Chef {
 		this.cognome = cognome;
 	}
 
-	public String getNazionalitá() {
-		return nazionalitá;
+	public String getNazionalita() {
+		return this.nazionalita;
 	}
 
-	public void setNazionalitá(String nazionalitá) {
-		this.nazionalitá = nazionalitá;
+	public void setNazionalita(String nazionalita) {
+		this.nazionalita = nazionalita;
 	}
 
 	public List<Buffet> getBuffets() {

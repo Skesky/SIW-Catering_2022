@@ -31,9 +31,13 @@ public class ChefService {
 	//	return chefRepo.getAllChefBuffet(c);
 	//}
 		
-	@Transactional
+	
 	public List<Buffet> getChetBuffet(Chef chef){
 		return chefRepo.getAllChefBuffet(chef);
+	}
+	
+	public List<Chef> getAllChefs(){
+		return (List<Chef>)chefRepo.findAll();
 	}
 
 }

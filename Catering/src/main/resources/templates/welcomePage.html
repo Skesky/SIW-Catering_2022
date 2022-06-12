@@ -8,11 +8,13 @@
 </head>
 
 <body>
-	<img alt="background" src="/image/servizio-catering.jpg">
+	
 	<div class="flex-container">
 
-		<h1 id="a">WELCOME PAGE</h1>
+		<h1 th:text="#{welcome}+' '+${user.nome}"></h1>
 		
+		<div><a th:href="@{/explore}" th:text="#{page-explore}"></a></div>
+		<p th:text="#{welcome}"> pippo pluto</p>
 		
 	</div>
 </body>

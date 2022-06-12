@@ -13,14 +13,8 @@
 	</head>
 
 	<body>
-	    
-	        <ul>
-	            <li>
-	                <a class="link" th:href="@{/chefs}">Esplora la nostra scelta per chef</a>
-	            </li>
-	            <li>
-	                <a class="link" th:href="@{/categories}">Esplora la nostra scelta per categoria</a>
-	            </li>
-	        </ul>
+	   <div class="grid-container" th:each="user : ${users}">
+	   		<div class="grid-item" th:text="${user.nome} + ' ' + ${user.cognome}"></div>
+	   </div>
 	</body>
 </html>

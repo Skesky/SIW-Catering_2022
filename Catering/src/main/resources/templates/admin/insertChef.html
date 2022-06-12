@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="/css/index.css" rel="stylesheet"> -->
+    <!-- <link rel="icon" href="/images/cloche.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+    <!--<div class="flex-container">
+        <h4>Insert chef</h4>
+
+    <form th:action="@{/admin/insertChef}" method="POST" >
+        <div>
+            <span>Nome:</span>
+            <span><input name="name" type="text" placeholder="name" th:field="${chef.nome}" required /></span>
+            <span th:if="${#fields.hasErrors('chef.nome')}" th:errors="${credentials.username}"
+                th:style="'color:red'"></span>
+        </div>
+        <div>
+            <span>Cognome:</span>
+            <span><input name="cognome" type="text" placeholder="cognome" th:field="${chef.cognome}" required /></span>
+            <span th:if="${#fields.hasErrors('chef.cognome')}" th:errors="${credentials.username}"
+                th:style="'color:red'"></span>
+        </div>
+        <div>
+            <span>Nazionalita':</span>
+            <span><input name="cognome" type="text" placeholder="cognome" th:field="${chef.cognome}" required /></span>
+            <span th:if="${#fields.hasErrors('chef.nazionalita')}" th:errors="${credentials.username}"
+                th:style="'color:red'"></span>
+        </div>
+        <div>
+            <span><button type="submit">Insert chef</button></span>
+        </div>
+    </form>
+    </div> -->
+    <div class="flex-container">
+		<form th:action="@{/admin/insertChef}" method="post">
+			<div class="box">
+			<h1 id="l-title" th:text="#{header.register}">Registrati</h1>
+				<div class="item">
+					<span>Nome:</span>
+            <span><input name="name" type="text" placeholder="name" th:field="${chef.nome}" required /></span>
+				</div>
+				<div class="item">
+					<span th:text="#{register-form.surname}">Cognome:</span>
+					<span><input type="text" th:placeholder="#{register-form-placeholder.surname}"required
+									th:field="${chef.cognome}"/> </span>
+				</div>
+				<div class="item">
+					<span th:text="#{register-form.username}">Username:</span>
+					<span><input type="text" th:placeholder="#{register-form-placeholder.username}"required
+									th:field="${chef.nazionalita}"/> </span>
+				</div>
+				
+				<div class="item">
+					<span><button type="submit" th:text="#{register-form.button}">Registrati</button></span>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>
+
