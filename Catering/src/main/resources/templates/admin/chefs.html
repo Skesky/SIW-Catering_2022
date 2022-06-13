@@ -13,13 +13,11 @@
 	</head>
 
 	<body>
-	        <ul>
-	            <li>
-	                <a class="link" th:href="@{/chefs}">Esplora la nostra scelta per chef</a>
-	            </li>
-	            <li>
-	                <a class="link" th:href="@{/categories}">Esplora la nostra scelta per categoria</a>
-	            </li>
-	        </ul>
+	   <div class="grid-container" th:each="chef : ${chefs}">
+	   		<div  class="grid-item" th:text="${chef.nome} + ' ' + ${chef.cognome} + ' ' + ${chef.nazionalita}"></div>
+	   		<span >
+	   			<a th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}"> Rimuovi</a>
+	   		</span>
+	   </div>
 	</body>
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link href="/css/index.css" rel="stylesheet"> -->
+     <link href="/css/form.css" rel="stylesheet"> 
     <!-- <link rel="icon" href="/images/cloche.ico" type="image/x-icon"> -->
 </head>
 
@@ -46,18 +46,18 @@
             <span><input name="name" type="text" placeholder="name" th:field="${chef.nome}" required /></span>
 				</div>
 				<div class="item">
-					<span th:text="#{register-form.surname}">Cognome:</span>
-					<span><input type="text" th:placeholder="#{register-form-placeholder.surname}"required
+					<span th:text="#{form.surname}">Cognome:</span>
+					<span><input name="surname" type="text" th:placeholder="#{form-placeholder.surname}"required
 									th:field="${chef.cognome}"/> </span>
 				</div>
 				<div class="item">
-					<span th:text="#{register-form.username}">Username:</span>
-					<span><input type="text" th:placeholder="#{register-form-placeholder.username}"required
+					<span th:text="#{form.username}">Username:</span>
+					<span><input name="nationality" type="text" th:placeholder="#{form-placeholder.username}"required
 									th:field="${chef.nazionalita}"/> </span>
 				</div>
 				
 				<div class="item">
-					<span><button type="submit" th:text="#{register-form.button}">Registrati</button></span>
+					<span><button type="submit" th:text="#{form.button}">Registrati</button></span>
 				</div>
 			</div>
 		</form>

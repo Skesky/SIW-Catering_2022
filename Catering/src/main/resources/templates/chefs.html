@@ -13,8 +13,14 @@
 	</head>
 
 	<body>
-	   <div class="grid-container" th:each="user : ${users}">
-	   		<div class="grid-item" th:text="${user.nome} + ' ' + ${user.cognome}"></div>
+	   <div class="grid-container" th:each="chef : ${chefs}">
+	   		<div  class="grid-item" th:text="${chef.nome} + ' ' + ${chef.cognome} + ' ' + ${chef.nazionalita}"></div>
+	   		<span >
+	   			<a th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}"> Buffet</a>
+	   		</span>
 	   </div>
 	</body>
 </html>
+
+
+ 

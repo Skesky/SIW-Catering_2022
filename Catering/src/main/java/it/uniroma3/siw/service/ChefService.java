@@ -32,12 +32,19 @@ public class ChefService {
 	//}
 		
 	
+	@Transactional
 	public List<Buffet> getChetBuffet(Chef chef){
 		return chefRepo.getAllChefBuffet(chef);
 	}
 	
+	@Transactional
 	public List<Chef> getAllChefs(){
 		return (List<Chef>)chefRepo.findAll();
+	}
+	
+	@Transactional
+	public void deleteByid(Long id) {
+		chefRepo.deleteById(id);
 	}
 
 }

@@ -29,6 +29,14 @@ public class Credentials {
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 	
+	public Credentials(){
+		
+	}
+	
+	public Credentials(User user){
+		this.user = user;
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -1,0 +1,84 @@
+body{
+ 	background-color: #370f68; 
+	background-image: url(/image/servizio-catering.jpg);
+}
+
+#header {
+  background: rgba(255, 255, 255, .5);
+  padding: 1%;
+  overflow: hidden;
+  height: 55px;
+}
+
+#header img {
+  float: left;
+  box-shadow: none;
+}
+#header ul {
+  list-style: none;
+  float: left;
+  padding-left: 10px;
+  margin-top: 15px;
+}
+#header ul li {
+  float: left;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.item:hover{
+  background-color: rgba(176, 192, 207, 0.8);
+  border-radius: 10%;
+}
+
+.item a{
+	text-decoration:none;
+	text-align: center;
+	color: black;
+	padding: 6px 10px;
+	display: block;
+}
+
+.flex-container{
+	display: flex;
+	flex-direction: column;
+	margin-top: 20%;
+	align-items: center; 
+	backdrop-filter: blur(50px);
+	justify-content: space-around;
+}
+
+#title{
+ text-align: center;
+}
+
+
+.box{ 
+	display: flex;
+	align-items: center; 
+	flex-direction: column;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.button-div{
+	margin-top: 15px;
+	text-align: center;
+}
+
+button{
+	height: 40px;
+	width: 75px;
+	border-radius: 20px;
+  	text-decoration: none;
+	background-color: rgba(255,255,255,.8);
+  	border: solid 2px rgba(204, 241, 22, 0.8);
+}
+
+button:hover{
+	transition-duration: .3;
+	background-color: rgba(204, 241, 22, 0.8);
+}
+
+

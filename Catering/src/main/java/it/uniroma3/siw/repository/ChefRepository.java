@@ -17,6 +17,8 @@ public interface ChefRepository extends CrudRepository<Chef, Long> {
 	@Query("SELECT buffets FROM Chef c WHERE c =: chef")
 	public List<Buffet>getAllChefBuffet(@Param("chef")Chef chef);
 	
+	public void deleteById(Long id);
+		
 	
 
 }

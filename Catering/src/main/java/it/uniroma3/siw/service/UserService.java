@@ -1,5 +1,6 @@
 package it.uniroma3.siw.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -15,14 +16,24 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Transactional
 	public User save(User user) {
 		return userRepo.save(user);
 	}
-	
+
 	public List<User> getAllUsers(){
-		return (List<User>) userRepo.findAll();
+		List<User> users = new ArrayList<>();
+
+		for(User u : userRepo.findAll()) {
+			users.add(u);
+		}
+
+		return users;
 	}
-		
+
+	public User findById(Long id) {
+		return userRepo.findById(id).get();
+	}
+
 }
