@@ -17,6 +17,11 @@ public class MainController {
 		return "explore";
 	}
 	
+	@GetMapping({"/admin/explore"})
+	public String exploreAdmin(Model model) {
+		return "admin/explore";
+	}
+	
 	@GetMapping({"/insertIngredient"})
 	public String inserdtIgredient(Model model) {
 		return "admin/insertIngredient";

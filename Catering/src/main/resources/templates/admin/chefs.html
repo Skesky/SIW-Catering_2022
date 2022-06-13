@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 
-	<head>
-	    <meta charset="UTF-8">
-	
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	    <link href="/css/index.css" rel="stylesheet">
-	    <link rel="icon" href="/images/cloche.ico" type="image/x-icon">
-	    <title>Explore</title>
-	</head>
+<head>
+<meta charset="UTF-8">
 
-	<body>
-	   <div class="grid-container" th:each="chef : ${chefs}">
-	   		<div  class="grid-item" th:text="${chef.nome} + ' ' + ${chef.cognome} + ' ' + ${chef.nazionalita}"></div>
-	   		<span >
-	   			<a th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}"> Rimuovi</a>
-	   		</span>
-	   </div>
-	</body>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="/css/list.css" rel="stylesheet">
+<link rel="icon" href="/images/cloche.ico" type="image/x-icon">
+<title>Explore</title>
+</head>
+
+<body>
+	<div id="header">
+		<img src="/image/catering-logo.svg" width="75px" />
+		<ul>
+			<li class="item"><a class="link" href="/index">Home</a></li>
+		</ul>
+	</div>
+
+	<div class="white" th:each="chef : ${chefs}">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Nazionalita</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--/*@thymesVar id="dishes" type="java.util.List<Buffet>"*/-->
+				<tr th:if="${chefs.isEmpty()}">
+					<td colspan="3">No Buffets Available</td>
+				</tr>
+
+				<tr th:each="chef : ${chefs}">
+					<td th:text="${chef.nome}">
+						ome</td>
+
+					<td th:text="${chef.cognome}">
+						Cognome</td>
+						
+					<td th:text="${chef.nazionalita}">
+						Nazionalita</td>
+
+					<td>
+						<a th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}">Rimuovi</a>
+						<a class="button button2" href="buffet.html/0">Edit</a>
+
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+</body>
 </html>
+
+<!-- <div class="grid-item" th:text="${chef.nome} + ' ' + ${chef.cognome} + ' ' + ${chef.nazionalita}"></div>
+		<span> <a th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}">Rimuovi</a></span> -->

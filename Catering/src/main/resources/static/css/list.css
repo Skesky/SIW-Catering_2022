@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
+html, body {
+  height:100%;
+  font-family: 'Cardo',serif;
+  font-size: 25px;
+}
+
+html {
+  background: url(/image/servizio-catering.jpg) fixed;
+  background-size: 100%;
+}
+
+div {
+  overflow: hidden;
+}
+
+#header {
+  background: rgba(255, 255, 255, .5);
+  padding: 1%;
+  overflow: hidden;
+  height: 55px;
+}
+
+#header img {
+  float: left;
+  box-shadow: none;
+}
+#header ul {
+  list-style: none;
+  float: left;
+  padding-left: 10px;
+  margin-top: 15px;
+}
+#header ul li {
+  float: left;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.item:hover{
+  background-color: rgba(176, 192, 207, 0.8);
+  border-radius: 10%;
+}
+
+.item a{
+	text-decoration:none;
+	text-align: center;
+	color: black;
+	padding: 6px 10px;
+	display: block;
+}
+
+.white {
+  background: #eeeeec;
+  padding: 0 5%;
+  margin-top: 15%;
+}
+
+.table {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
