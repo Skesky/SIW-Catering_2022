@@ -20,7 +20,7 @@
 		</ul>
 	</div>
 
-	<div class="white" th:each="chef : ${chefs}">
+	<div class="white" >
 		<table class="table">
 			<thead>
 				<tr>
@@ -30,7 +30,7 @@
 					<th>Edit</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody >
 				<!--/*@thymesVar id="dishes" type="java.util.List<Buffet>"*/-->
 				<tr th:if="${chefs.isEmpty()}">
 					<td colspan="3">No Buffets Available</td>
@@ -38,7 +38,7 @@
 
 				<tr th:each="chef : ${chefs}">
 					<td th:text="${chef.nome}">
-						ome</td>
+						Nome</td>
 
 					<td th:text="${chef.cognome}">
 						Cognome</td>

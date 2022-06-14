@@ -63,3 +63,11 @@ div {
     border-collapse: collapse;
     table-layout: fixed;
 }
+
+td a{
+  border: solid 1.5px;
+  padding: 3px 2px;
+  border-radius: 10%;
+  text-decoration:none;
+	text-align: center;
+}
