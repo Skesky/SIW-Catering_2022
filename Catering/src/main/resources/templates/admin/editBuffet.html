@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/form.css" rel="stylesheet">
+<!-- <link rel="icon" href="/images/cloche.ico" type="image/x-icon"> -->
+</head>
+
+<body>
+	<div id="header">
+		<img src="/image/catering-logo.svg" width="75px" />
+		<ul>
+			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/default}">Welcome Page</a></li>
+		</ul>
+
+	</div>
+	<div class="flex-container">
+		<form th:action="@{'/admin' + '/' +'editBuffet' + '/' + ${buffet.id}}" method="post">
+			<div class="box">
+				<h1 id="l-title" th:text="#{header.register}">Registrati</h1>
+				<div class="form-line">
+					<span th:text="#{form.name}">Nome:</span> <span><input th:value="${buffet.nome}"
+						name="name" type="text" th:placeholder="#{form-placeholder.name}"
+						th:field="${chef.nome}" required /></span>
+				</div>
+				<div class="form-line">
+					<span th:text="#{form.surname}">Cognome:</span> <span><input th:value="${chef.cognome}"
+						name="surname" type="text"
+						th:placeholder="#{form-placeholder.surname}" required
+						th:field="${chef.cognome}" /> </span>
+				</div>
+				<div class="form-line">
+					<span th:text="#{form.nationality}">Username:</span> <span><input th:value="${chef.nazionalita}"
+						name="nationality" type="text"
+						th:placeholder="#{form-placeholder.nationality}" required
+						th:field="${chef.nazionalita}" /> </span>
+				</div>
+
+				<div class="button">
+					<span><button type="submit"
+							th:text="#{comfirm-form.button}">Conferma</button></span>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</body>
+
+</html>

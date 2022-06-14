@@ -25,8 +25,9 @@
 			 <thead>
 				<tr>
 					<th th:text="#{form.name}">Nome</th>
-					<th th:text="#{form.surname}">Cognome</th>
-					<th th:text="#{form.nationality}">Nazionalita</th>
+					<th th:text="#{list.categoria}">Cognome</th>
+					<th th:text="#{list.description}">descrizione</th>
+					<th >Chef</th>
 					
 				</tr>
 			</thead>
@@ -36,16 +37,18 @@
 				</tr>-->
 
 				<tr >
-					<td th:text="${chef.nome}">Nome</td>
+					<td th:text="${buffet.nome}">Nome</td>
 
-					<td th:text="${chef.cognome}">Cognome</td>
+					<td th:text="${buffet.categoria}">Cognome</td>
 
-					<td th:text="${chef.nazionalita}">Nazionalita</td>
+					<td th:text="${buffet.descrizione}">Nazionalita</td>
+					
+					<td th:text="${buffet.chef.nome} + ' ' + ${buffet.chef.cognome}">Nazionalita</td>
 
 				</tr>
 				<tr>
-					<td colspan="3" >
-						<a th:href="@{/admin/chefs}" th:text="#{cheflist.message}">Lista chef</a></td>
+					<td colspan="4" >
+						<a th:href="@{/admin/buffets}" th:text="#{cheflist.message}">Lista chef</a></td>
 				</tr>
 
 			</tbody> 

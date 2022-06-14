@@ -20,11 +20,11 @@ public class Buffet {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@NotBlank
+	
 	private String nome;
-	@NotBlank
+	
 	private String categoria;
-	@NotBlank
+	
 	private String descrizione;
 	
 	@ManyToOne
@@ -73,6 +73,16 @@ public class Buffet {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+
+	public Chef getChef() {
+		return chef;
+	}
+
+	public void setChef(Chef chef) {
+		this.chef = chef;
+	}
+	
+	
 	
 	
 	

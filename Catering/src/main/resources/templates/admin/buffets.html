@@ -23,37 +23,40 @@
 	</div>
 
 	<div class="white">
-	<h1 class="titolo" th:text="#{chefList.message}">Lista degli chef</h1>
 		<table class="table">
 			<thead>
 				<tr>
+					<th th:text="#{form.name}">Chef</th>
 					<th th:text="#{form.name}">Nome</th>
-					<th th:text="#{form.surname}">Cognome</th>
-					<th th:text="#{form.nationality}">Nazionalita</th>
-					<th th:text="#{editList.message}">Edit</th>
+					<th th:text="#{list.categoria}">Categoria</th>
+					<th th:text="#{list.description}">Descrizione</th>
+					<th th:text="#{list.edit}">Edit</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:if="${chefs.isEmpty()}">
-					<td colspan="3">No Buffets Available</td>
+				<tr th:if="${buffets.empty}">
+					<td colspan="5">No Buffets Available</td>
 				</tr>
 
-				<tr th:each="chef : ${chefs}">
-					<td th:text="${chef.nome}" >Nome</td>
+				 <tr th:each="buffet : ${buffets}">
+					
+					<td th:text="${buffet.chef.nome} +' '+ ${buffet.chef.cognome}">Nome</td>
+					
+					<td th:text="${buffet.nome}">Nome</td>
 
-					<td th:text="${chef.cognome}">Cognome</td>
+					<td th:text="${buffet.categoria}">Cognome</td>
 
-					<td th:text="${chef.nazionalita}">Nazionalitá</td>
+					<td th:text="${buffet.descrizione}">Nazionalita</td>
 
 					<td><a
-						th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}"
+						th:href="@{'/admin' + '/' +'removeBuffet' + '/' + ${buffet.id}}"
 								th:text="#{removeList.message}">Rimuovi</a>
 						<a class="button"
-						th:href="@{'/admin' + '/' +'editChef' + '/' + ${chef.id}}"
+						th:href="@{'/admin' + '/' +'editBuffet' + '/' + ${buffet.id}}"
 								th:text="#{list.edit}">Edit</a>
 
 					</td>
-				</tr>
+				</tr> 
 
 			</tbody>
 		</table>

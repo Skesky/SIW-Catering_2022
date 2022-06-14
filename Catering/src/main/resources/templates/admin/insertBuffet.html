@@ -19,30 +19,36 @@
 
 	</div>
 	<div class="flex-container">
-		<form th:action="@{/admin/insertChef}" method="post">
+		<form th:action="@{/admin/insertBuffet}" method="post" th:object="${buffet}">
 			<div class="box">
 				<h1 id="l-title" th:text="#{header.insertChef}">Registrati</h1>
 				<div class="form-line">
 					<span th:text="#{form.name}">Nome:</span> <span><input
 						name="name" type="text" th:placeholder="#{form-placeholder.name}"
-						th:field="${chef.nome}" required /></span>
+						th:field="${buffet.nome}" required /></span>
 				</div>
 				<div class="form-line">
-					<span th:text="#{form.surname}">Cognome:</span> <span><input
-						name="surname" type="text"
+					<span th:text="#{list.categoria}">Categoria:</span> <span><input
+						name="category" type="text"
 						th:placeholder="#{form-placeholder.surname}" required
-						th:field="${chef.cognome}" /> </span>
+						th:field="${buffet.categoria}" /> </span>
 				</div>
 				<div class="form-line">
-					<span th:text="#{form.nationality}">Username:</span> <span><input
-						name="nationality" type="text"
+					<span th:text="#{list.description}">Descrizione:</span> <span><input
+						name="description" type="text"
 						th:placeholder="#{form-placeholder.nationality}" required
-						th:field="${chef.nazionalita}" /> </span>
+						th:field="${buffet.descrizione}" /> </span>
 				</div>
+				 <div class="form-line" >
+				 	<label th:for="selettore" > chef:</label>
+					<select id="selettore"  th:field="*{chef}">
+						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
+					</select>
+				</div> 
 
 				<div class="button">
 					<span><button type="submit"
-							th:text="#{confirm-form.button}">Registrati</button></span>
+							th:text="#{confirm-form.button}">Conferma</button></span>
 				</div>
 			</div>
 		</form>

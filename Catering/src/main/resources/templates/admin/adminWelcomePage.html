@@ -1,21 +1,36 @@
-<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/index.css" rel="stylesheet">
-	<title>Catering</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/welcome.css" rel="stylesheet">
+<title>Catering</title>
 </head>
 
 <body>
-	 <div class="flex-container">
-		<h1 th:text="#{welcome}+' '+${user.nome}"></h1>
-		<div><a th:href="@{admin/editBuffet}" th:text="#{page-editBuffet}"></a></div>
-		<div><a th:href="@{admin/insertChef}" th:text="#{page-insertChef}"></a></div>
-		<div><a th:href="@{/admin/explore}" th:text="#{page-explore}"></a></div>
-	</div> 
+	<div id="header">
+		<img src="/image/catering-logo.svg" width="75px" />
+		<ul>
+			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
+		</ul>
+
+	</div>
+	<div class="flex-container">
+		<div class="box">
+			<h1 th:text="#{welcome}+' '+${user.nome}"></h1>
+			 <div>
+				<a th:href="@{admin/insertBuffet}" th:text="#{page-insertBuffet}"></a>
+			</div> 
+			<div>
+				<a th:href="@{admin/insertChef}" th:text="#{page-insertChef}"></a>
+			</div>
+			<div>
+				<a th:href="@{admin/explore}" th:text="#{page-explore}"></a>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
 
-  

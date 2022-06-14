@@ -19,22 +19,22 @@
 
 	</div>
 	<div class="flex-container">
-		<form th:action="@{/admin/insertChef}" method="post">
+		<form th:action="@{'/admin' + '/' +'editChef' + '/' + ${chef.id}}" method="post">
 			<div class="box">
-				<h1 id="l-title" th:text="#{header.insertChef}">Registrati</h1>
+				<h1 id="l-title" th:text="#{header.register}">Registrati</h1>
 				<div class="form-line">
-					<span th:text="#{form.name}">Nome:</span> <span><input
+					<span th:text="#{form.name}">Nome:</span> <span><input th:value="${chef.nome}"
 						name="name" type="text" th:placeholder="#{form-placeholder.name}"
 						th:field="${chef.nome}" required /></span>
 				</div>
 				<div class="form-line">
-					<span th:text="#{form.surname}">Cognome:</span> <span><input
+					<span th:text="#{form.surname}">Cognome:</span> <span><input th:value="${chef.cognome}"
 						name="surname" type="text"
 						th:placeholder="#{form-placeholder.surname}" required
 						th:field="${chef.cognome}" /> </span>
 				</div>
 				<div class="form-line">
-					<span th:text="#{form.nationality}">Username:</span> <span><input
+					<span th:text="#{form.nationality}">Username:</span> <span><input th:value="${chef.nazionalita}"
 						name="nationality" type="text"
 						th:placeholder="#{form-placeholder.nationality}" required
 						th:field="${chef.nazionalita}" /> </span>
@@ -51,4 +51,3 @@
 </body>
 
 </html>
-

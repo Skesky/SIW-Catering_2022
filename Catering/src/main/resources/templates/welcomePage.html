@@ -1,24 +1,39 @@
-<!DOCTYPE html><html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/index.css" rel="stylesheet">
-	<title>Catering</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/css/welcome.css" rel="stylesheet">
+<title>Catering</title>
 </head>
 
 <body>
-	
-	<div class="flex-container">
+	<div id="header">
+		<img src="/image/catering-logo.svg" width="75px" />
+		<ul>
+			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/default}">Welcome
+					Page</a></li>
+		</ul>
 
-		<h1 th:text="#{welcome}+' '+${user.nome}"></h1>
-		
-		<div><a th:href="@{/explore}" th:text="#{page-explore}"></a></div>
-		<p th:text="#{welcome}"> pippo pluto</p>
-		
+	</div>
+
+	<div class="flex-container">
+		<div class="box">
+			<h1 th:text="#{welcome}+' '+${user.nome}"></h1>
+			<div>
+				<a th:href="@{/explore}" th:text="#{page-explore}"></a>
+			</div>
+
+		</div>
+
 	</div>
 </body>
 
 </html>
 
-  
+<!-- <h1 th:text="#{welcome}+' '+${user.nome}"></h1>
+		
+		<div><a th:href="@{/explore}" th:text="#{page-explore}"></a></div>
+		<p th:text="#{welcome}"> pippo pluto</p> -->

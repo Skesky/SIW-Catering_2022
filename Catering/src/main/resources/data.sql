@@ -13,3 +13,5 @@ insert into ingrediente(id, nome, origine, descrizione) values('120', 'Pepe', 'R
 insert into piatto_ingredienti(piatto_id, ingredienti_id) values('300', '100');
 insert into piatto_ingredienti(piatto_id, ingredienti_id) values('300', '110');
 insert into piatto_ingredienti(piatto_id, ingredienti_id) values('300', '120');*/
+
+insert into buffet(id, categoria, descrizione, nome, chef_id) values('42', 'vegano','Gran buffet di verdure', 'OK', '30');

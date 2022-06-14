@@ -46,5 +46,10 @@ public class ChefService {
 	public void deleteByid(Long id) {
 		chefRepo.deleteById(id);
 	}
+	
+	@Transactional
+	public Chef findChefById(Long id) {
+		return chefRepo.findById(id).get();
+	}
 
 }

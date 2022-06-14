@@ -73,9 +73,51 @@ public class ChefController {
 		model.addAttribute("chefs", chefService.getAllChefs());
 		
 		return "admin/chefs";
-		
 	}
 	
+	@GetMapping("/admin/editChef/{id}")
+	public String editChef(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("chef", chefService.findChefById(id));
+		
+		return "admin/editChef";
+	}
+	
+	/*@PostMapping("/admin/editChef/{id}")
+	public String saveEditedChef(@PathVariable("id") Long id, 
+			@ModelAttribute("chef") Chef chef, Model model) {
+		model.addAttribute("chef", chefService.findChefById(id));
+		
+		Chef previousChef = chefService.findChefById(id);
+			previousChef.setNome(chef.getNome());
+			previousChef.setCognome(chef.getCognome());
+			previousChef.setNazionalita(chef.getNazionalita());
+		chefService.save(previousChef);
+		model.addAttribute("chefs", chefService.getAllChefs());
+		
+		
+		return "admin/chefs";
+	}*/
+	
+	@PostMapping("/admin/editChef/{id}")
+    public String editingChef(@PathVariable("id") Long id,
+            @ModelAttribute("chef") Chef chef, 
+            BindingResult chefBindingResult,
+            Model model) {
+        Chef originalChef = chefService.findChefById(id);
+        originalChef.setNome(chef.getNome());
+        originalChef.setCognome(chef.getCognome());
+        originalChef.setNazionalita(chef.getNazionalita());
+
+        this.chefValidator.validate(originalChef, chefBindingResult);
+        if(!chefBindingResult.hasErrors()) {
+            List<Chef> chefs = chefService.getAllChefs();
+            model.addAttribute("chefs",chefs);
+            chefService.save(originalChef);
+            return "admin/chefs";
+        }
+        model.addAttribute("chef",chefService.findChefById(id));
+        return "admin/editChef";
+    }
 	/*@PostMapping("/admin/confirmInsertChef")
 	public String confirmInsertChef(@ModelAttribute("chef") Chef chef, Model model) {
 		//Chef chef = (Chef) model.getAttribute("chef");//il problema si trova qui
