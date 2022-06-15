@@ -5,28 +5,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/welcome.css" rel="stylesheet">
-<title>Catering</title>
+<title th:text="#{welcomePage}">Catering</title>
 </head>
 
 <body>
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
 		</ul>
 
 	</div>
 	<div class="flex-container">
 		<div class="box">
-			<h1 th:text="#{welcome}+' '+${user.nome}"></h1>
+			<h1 th:text="#{welcome.message}+' '+${user.nome}"></h1>
 			 <div>
-				<a th:href="@{admin/insertBuffet}" th:text="#{page-insertBuffet}"></a>
+				<a th:href="@{admin/insertBuffet}" th:text="#{insertBuffet.button}"></a>
 			</div> 
 			<div>
-				<a th:href="@{admin/insertChef}" th:text="#{page-insertChef}"></a>
+				<a th:href="@{admin/insertChef}" th:text="#{insertChef.button}"></a>
 			</div>
 			<div>
-				<a th:href="@{admin/explore}" th:text="#{page-explore}"></a>
+				<a th:href="@{admin/explore}" th:text="#{explore.button}"></a>
 			</div>
 		</div>
 	</div>

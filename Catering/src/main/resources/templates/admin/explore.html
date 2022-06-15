@@ -16,20 +16,20 @@
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
-			<li class="item"><a class="link" th:href="@{/default}">Welcome Page</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/default}" th:text="#{header-welcomePage}">Welcome Page</a></li>
 		</ul>
 
 	</div>
 	<div class="flex-container">
 		<div class="box">
-			<h1 th:text="#{explore.title}">Cosa vuoi fare</h1>
+			<h1 th:text="#{explorePage-title}">Cosa vuoi fare</h1>
 			<div>
-				<a th:href="@{/admin/chefs}" th:text="#{explore.chefs}">Esplora
+				<a th:href="@{/admin/chefs}" th:text="#{explorePage-chef}">Esplora
 					la nostra scelta per chef</a>
 			</div>
 			<div>
-				<a th:href="@{/admin/buffets}" th:text="#{explore.buffets}">
+				<a th:href="@{/admin/buffets}" th:text="#{explorePage-buffet}">
 					Esplora tuttu i buffets</a>
 			</div>
 			<!--<div>

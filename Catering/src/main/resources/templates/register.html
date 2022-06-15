@@ -5,50 +5,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/form.css" rel="stylesheet">
-<title>Catering</title>
+<title th:text="#{register}">Register</title>
 </head>
 
 <body>
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
 		</ul>
 
 	</div>
 	<div class="flex-container">
 		<div class="box">
 			<form th:action="@{/register}" method="post">
-				<h1 id="title" th:text="#{header.register}">Register</h1>
+				<h1 id="title" th:text="#{header-register}">Register</h1>
 				<table class="login-table">
 					<tr>
-						<td th:text="#{form.name}">Name:</td>
+						<td th:text="#{name.message}">Name:</td>
 						<td><label><input type="text"
-								th:placeholder="#{form-placeholder.name}" required
+								th:placeholder="#{placeholder-name}" required
 								th:field="${user.nome}"></label></td>
 					</tr>
 					<tr>
-						<td th:text="#{form.surname}">Surname:</td>
+						<td th:text="#{surname.message}">Surname:</td>
 						<td><label><input type="text"
-								th:placeholder="#{form-placeholder.surname}" required
+								th:placeholder="#{placeholder-surname}" required
 								th:field="${user.cognome}"></label></td>
 					</tr>
 					<tr>
-						<td th:text="#{form.username}">Username:</td>
+						<td th:text="#{username.message}">Username:</td>
 						<td><label><input type="text"
-								th:placeholder="#{form-placeholder.username}" required
+								th:placeholder="#{placeholder-username}" required
 								th:field="${credentials.username}" /></label></td>
 					</tr>
 					<tr>
-						<td th:text="#{form.password}">Password:</td>
+						<td th:text="#{password.message}">Password:</td>
 						<td><label><input type="password"
-								th:placeholder="#{form-placeholder.password}" required
+								th:placeholder="#{placeholder-password}" required
 								th:field="${credentials.password}" /></label></td>
 					</tr>
 				</table>
 				<div class="button-div">
 					<span>
-						<button class="button" type="submit">Login</button>
+						<button class="button" type="submit" th:text="#{register.button}">Login</button>
 					</span>
 				</div>
 			</form>

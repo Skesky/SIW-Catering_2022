@@ -13,41 +13,56 @@
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
-			<li class="item"><a class="link" th:href="@{/default}">Welcome Page</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/default}" th:text="#{header-welcomePage}">Welcome Page</a></li>
 		</ul>
 
 	</div>
 	<div class="flex-container">
-		<form th:action="@{'/admin' + '/' +'editBuffet' + '/' + ${buffet.id}}" method="post">
-			<div class="box">
-				<h1 id="l-title" th:text="#{header.register}">Registrati</h1>
-				<div class="form-line">
-					<span th:text="#{form.name}">Nome:</span> <span><input th:value="${buffet.nome}"
-						name="name" type="text" th:placeholder="#{form-placeholder.name}"
-						th:field="${chef.nome}" required /></span>
-				</div>
-				<div class="form-line">
-					<span th:text="#{form.surname}">Cognome:</span> <span><input th:value="${chef.cognome}"
-						name="surname" type="text"
-						th:placeholder="#{form-placeholder.surname}" required
-						th:field="${chef.cognome}" /> </span>
-				</div>
-				<div class="form-line">
-					<span th:text="#{form.nationality}">Username:</span> <span><input th:value="${chef.nazionalita}"
-						name="nationality" type="text"
-						th:placeholder="#{form-placeholder.nationality}" required
-						th:field="${chef.nazionalita}" /> </span>
-				</div>
-
-				<div class="button">
-					<span><button type="submit"
-							th:text="#{comfirm-form.button}">Conferma</button></span>
-				</div>
-			</div>
-		</form>
+		<div class="box">
+			<form th:action="@{'/admin' + '/' +'editBuffet' + '/' + ${buffet.id}}" method="post" th:object="${buffet}">
+			<table>
+			</table>
+			</form>
+		
+		</div>
+		
 	</div>
 
 </body>
 
 </html>
+
+<!-- <form th:action="@{'/admin' + '/' +'editBuffet' + '/' + ${buffet.id}}" method="post" th:object="${buffet}">
+			<div class="box">
+				<h1 id="l-title" th:text="#{header-editBuffet}">Registrati</h1>
+				<div class="form-line">
+					<span th:text="#{name.message}">Nome:</span> <span><input th:value="${buffet.nome}"
+						name="name" type="text" th:placeholder="#{placeholder-name}"
+						th:field="${buffet.nome}" required /></span>
+				</div>
+				<div class="form-line">
+					<span th:text="#{category.message}">Categoria:</span> <span><input th:value="${buffet.categoria}"
+						name="surname" type="text"
+						th:placeholder="#{placeholder-category}" required
+						th:field="${buffet.categoria}" /> </span>
+				</div>
+				<div class="form-line">
+					<span th:text="#{description.message}">Descrizione:</span> <span><input th:value="${buffet.descrizione}"
+						name="nationality" type="text"
+						th:placeholder="#{placeholder-description}" required
+						th:field="${buffet.descrizione}" /> </span>
+				</div>
+				  <div class="form-line" >
+				 	<label th:for="selettore" th:text="#{chef.message}"> </label>
+					<select id="selettore"  th:field="*{chef}">
+						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
+					</select>
+				</div>  
+
+				<div class="button">
+					<span><button type="submit"
+							th:text="#{confirm.button}">Conferma</button></span>
+				</div>
+			</div>
+		</form> -->

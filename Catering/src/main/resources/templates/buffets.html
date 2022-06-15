@@ -9,27 +9,28 @@
 
 <link href="/css/list.css" rel="stylesheet">
 <link rel="icon" href="/images/cloche.ico" type="image/x-icon">
-<title>Explore</title>
+<title th:text="#{buffets}">Buffets</title>
 </head>
 
 <body>
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
-			<li class="item"><a class="link" th:href="@{/default}">Welcome Page</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/default}" th:text="#{header-welcomePage}">Welcome Page</a></li>
 		</ul>
 
 	</div>
 
 	<div class="white">
+		<h1 class="titolo" th:text="#{buffets}"></h1>
 		<table class="table">
 			<thead>
 				<tr>
-					<th th:text="#{form.name}">Chef</th>
-					<th th:text="#{form.name}">Nome</th>
-					<th th:text="#{list.categoria}">Categoria</th>
-					<th th:text="#{list.description}">Descrizione</th>
+					<th th:text="#{chef.message}">Chef</th>
+					<th th:text="#{name.message}">Nome</th>
+					<th th:text="#{category.message}">Categoria</th>
+					<th th:text="#{description.message}">Descrizione</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,7 +49,7 @@
 					<td th:text="${buffet.descrizione}">Nazionalita</td>
 					
 					<td><a th:href="@{'/buffetDishes' + '/' + ${buffet.id}}"
-								th:text="#{form.name}">Buffet dello Chef</a> </td>
+								th:text="#{dishPerBuffet.message}">Buffet dello Chef</a> </td>
 
 				</tr>
 

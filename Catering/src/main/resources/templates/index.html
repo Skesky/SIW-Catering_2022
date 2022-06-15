@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/index.css" rel="stylesheet">
-<title>Catering</title>
+<title th:text="#{catering}">Catering</title>
 </head>
 
 <body>
@@ -13,23 +13,23 @@
 		<div id="header">
 			<img src="/image/catering-logo.svg" width="75px" />
 			<ul>
-				<li class="item"><a class="link" th:href="@{/login}">Accedi</a></li>
-				<li class="item"><a class="link" th:href="@{/register}">Registrati</a></li>
+				<li class="item"><a class="link" th:href="@{/login}" th:text="#{header-login}">Accedi</a></li>
+				<li class="item"><a class="link" th:href="@{/register}" th:text="#{header-register}">Registrati</a></li>
 			</ul>
 
 		</div>
 		<div class="header">
-			<h1>Lorem Ipsum</h1>
+			<h1>Un catering</h1>
 		</div>
 	</div>
 
 	<div class="white">
 		<a id="test"></a>
-		<h1>Dolor Sit Amet</h1>
+		<h1>About Us</h1>
 		<img class="floatleft"
 			src="http://www.2020site.org/trees/images/PineNeedles.jpg" />
 		<p>
-			<a href="">Lorem ipsum</a> dolor sit amet, consectetur adipiscing
+			Lorem ipsum dolor sit amet, consectetur adipiscing
 			elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue
 			ligula ac quam viverra nec consectetur ante hendrerit. Donec et
 			mollis dolor. Praesent et diam eget libero egestas mattis sit amet

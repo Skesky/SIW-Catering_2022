@@ -10,11 +10,7 @@ import it.uniroma3.siw.model.Buffet;
 
 public interface BuffetRepository extends CrudRepository<Buffet, Long>{
 	
-	public List<Buffet> findByCategoria(String categoria);
-	
-	@Query("SELECT b FROM Buffet b WHERE b.chef.nome = :nomeChef AND b.chef.cognome = :cognomeChef")
-	public List<Buffet> buffetPerChef(@Param("nomeChef")String nomeChef,@Param("cognomeChef")String cognomeChef);
-	
+	boolean existsByNome(String nome);
 	
 	
 }

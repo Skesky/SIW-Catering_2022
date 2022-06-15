@@ -52,6 +52,24 @@ public class BuffetController {
 	@GetMapping("/admin/editBuffet/{id}")
 	public String editBuffet(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("buffet", buffetService.findBuffetById(id));
+		model.addAttribute("chefs", chefService.getAllChefs());
+		
+		return "admin/editBuffet";
+	}
+	
+	@PostMapping("/admin/editBuffet/{id}")
+	public String saveEditedBuffet(@PathVariable("id") Long id, @ModelAttribute("buffet") Buffet buffet , Model model) {
+		Buffet originalBuffet = buffetService.findBuffetById(id);
+		
+		originalBuffet.setId(buffet.getId());
+		originalBuffet.setNome(buffet.getNome());
+		originalBuffet.setCategoria(buffet.getCategoria());
+		originalBuffet.setDescrizione(buffet.getDescrizione());
+		originalBuffet.setChef(buffet.getChef());
+		//chef.getBuffets().add(buffet);
+		buffetService.save(originalBuffet);
+		
+		model.addAttribute("buffets", buffetService.findAllBuffet());
 		
 		return "admin/buffets";
 	}

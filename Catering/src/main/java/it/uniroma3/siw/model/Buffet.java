@@ -27,7 +27,7 @@ public class Buffet {
 	
 	private String descrizione;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne
 	private Chef chef;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},

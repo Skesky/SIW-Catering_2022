@@ -13,34 +13,80 @@
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
-			<li class="item"><a class="link" th:href="@{/default}">Welcome Page</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/default}" th:text="#{header-welcomePage}">Welcome Page</a></li>
 		</ul>
 
 	</div>
 	<div class="flex-container">
-		<form th:action="@{/admin/insertBuffet}" method="post" th:object="${buffet}">
+		<div class="box">
+			<form th:action="@{/admin/insertBuffet}" method="post" th:object="${buffet}">
+				<h1 id="title" th:text="#{header-insertBuffet}">Registrati</h1>
+				<table>
+					<tr>
+						<td th:text="#{name.message}"> Nome</td>
+						<td><label><input name="name" type="text" th:placeholder="#{placeholder-name}"
+						th:field="${buffet.nome}" required></label></td>
+					</tr>
+					<tr>
+						<td th:text="#{category.message}"> Nome</td>
+						<td><label><input name="category" type="text" th:placeholder="#{placeholder-category}" required
+						th:field="${buffet.categoria}"></label></td>
+					</tr>
+					<tr>
+					<td th:text="#{description.message}"> Nome</td>
+						<td><label><input name="description" type="text"
+						th:placeholder="#{placeholder-desription}" required
+						th:field="${buffet.descrizione}"></label></td>
+					</tr>
+					<tr>
+						<td> <label th:for="selettore" th:text="#{chef.message}"> </label></td>
+						<td> <select id="selettore"  th:field="*{chef}">
+						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
+					</select></td>
+					</tr>
+				</table>
+
+				<div class="button-div">
+					<span><button type="submit"
+							th:text="#{confirm.button}">Conferma</button></span>
+				</div>
+			
+			</form>
+		</div>
+		
+	</div>
+
+</body>
+
+</html>
+
+
+<!-- <form th:action="@{/admin/insertBuffet}" method="post" th:object="${buffet}">
 			<div class="box">
-				<h1 id="l-title" th:text="#{header.insertChef}">Registrati</h1>
+				<h1 id="l-title" th:text="#{header-insertBuffet}">Registrati</h1>
+				<div th:if="${#fields.hasGlobalErrors()}" > 
+					 <p  th:each="err : ${#fields.globalErrors()}" th:text="${err}"> Errori</p> 
+				</div> 
 				<div class="form-line">
-					<span th:text="#{form.name}">Nome:</span> <span><input
-						name="name" type="text" th:placeholder="#{form-placeholder.name}"
+					<span th:text="#{name.message}">Nome:</span> <span><input
+						name="name" type="text" th:placeholder="#{placeholder-name}"
 						th:field="${buffet.nome}" required /></span>
 				</div>
 				<div class="form-line">
-					<span th:text="#{list.categoria}">Categoria:</span> <span><input
+					<span th:text="#{category.message}">Categoria:</span> <span><input
 						name="category" type="text"
-						th:placeholder="#{form-placeholder.surname}" required
+						th:placeholder="#{placeholder-category}" required
 						th:field="${buffet.categoria}" /> </span>
 				</div>
 				<div class="form-line">
-					<span th:text="#{list.description}">Descrizione:</span> <span><input
+					<span th:text="#{description.message}">Descrizione:</span> <span><input
 						name="description" type="text"
-						th:placeholder="#{form-placeholder.nationality}" required
+						th:placeholder="#{placeholder-desription}" required
 						th:field="${buffet.descrizione}" /> </span>
 				</div>
 				 <div class="form-line" >
-				 	<label th:for="selettore" > chef:</label>
+				 	<label th:for="selettore" th:text="#{chef.message}"> </label>
 					<select id="selettore"  th:field="*{chef}">
 						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
 					</select>
@@ -48,13 +94,9 @@
 
 				<div class="button">
 					<span><button type="submit"
-							th:text="#{confirm-form.button}">Conferma</button></span>
+							th:text="#{confirm.button}">Conferma</button></span>
 				</div>
 			</div>
-		</form>
-	</div>
+		</form> -->
 
-</body>
-
-</html>
 

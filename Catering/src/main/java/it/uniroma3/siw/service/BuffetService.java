@@ -6,11 +6,9 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import it.uniroma3.siw.model.Buffet;
+import it.uniroma3.siw.model.Chef;
 import it.uniroma3.siw.repository.BuffetRepository;
 
 @Service
@@ -19,8 +17,13 @@ public class BuffetService {
 	@Autowired
 	private BuffetRepository buffetRepo;
 	
+	@Autowired
+	private ChefService chefService;
+	
 	@Transactional
 	public Buffet save(Buffet buffet) {
+		Chef chef = chefService.findChefById(buffet.getChef().getId());
+		chef.getBuffets().add(buffet);
 		return buffetRepo.save(buffet);
 	}
 	
@@ -33,21 +36,23 @@ public class BuffetService {
 	public Buffet findBuffetById(Long id) {
 		return  buffetRepo.findById(id).get();
 	}
-	
-	@Transactional
-	public List<Buffet> buffetPerCategoria(String Categoria){
-		return buffetRepo.findByCategoria(Categoria);
-	}
-	
-	@Transactional
-	public List<Buffet> buffetPerChef(String nomeChef, String cognomeChef){
-		return buffetRepo.buffetPerChef(nomeChef, cognomeChef);
-	}
+
 	
 	@Transactional
 	public void deleteById(Long id) {
 		buffetRepo.deleteById(id);
 	}
+	
+	@Transactional
+	public void deleteBuffet(Buffet buffet) {
+		buffetRepo.delete(buffet);
+	}
+	
+	@Transactional
+	public boolean duplicati(String nome) {
+		return buffetRepo.existsByNome(nome);
+	}
+	
 }
 
 

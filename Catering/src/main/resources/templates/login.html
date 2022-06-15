@@ -6,14 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/form.css" rel="stylesheet">
-<title>Catering</title>
+<title th:text="#{login}">Login</title>
 </head>
 
 <body>
 	<div id="header">
 		<img src="/image/catering-logo.svg" width="75px" />
 		<ul>
-			<li class="item"><a class="link" th:href="@{/index}">Home</a></li>
+			<li class="item"><a class="link" th:href="@{/index}" th:text="#{header-home}">Home</a></li>
 		</ul>
 
 	</div>
@@ -23,19 +23,19 @@
 				<h1 id="title">Login</h1>
 				<table class="login-table">
 					<tr>
-						<td th:text="#{form.username}">Username:</td>
+						<td th:text="#{username.message}">Username:</td>
 						<td><label><input name="username" type="text"
-								th:placeholder="#{form-placeholder.username}" required></label></td>
+								th:placeholder="#{placeholder-username}" required></label></td>
 					</tr>
 					<tr>
-						<td th:text="#{form.password}">Password:</td>
+						<td th:text="#{password.message}">Password:</td>
 						<td><label><input name="password" type="password"
-								th:placeholder="#{form-placeholder.password}" required></label></td>
+								th:placeholder="#{placeholder-password}" required></label></td>
 					</tr>
 				</table>
 				<div class="button-div">
 					<span>
-						<button class="button" type="submit">Login</button>
+						<button class="button" type="submit" th:text="#{login.button}">Login</button>
 					</span>
 				</div>
 			</form>
@@ -44,27 +44,6 @@
 </body>
 
 </html>
-
-
-<!-- 
-			
-			
-				
-				<div class="box">
-			<div class="item">
-				<span th:text="#{form.username}">Username:</span>
-				<span><input name="username" type="text"
-								th:placeholder="#{form-placeholder.username}" required/> </span>
-			</div>
-			<div class="item">
-				<span th:text="#{form.password}">Password:</span>
-				<span><input name="password" type="password"
-								th:placeholder="#{form-placeholder.password}" required/> </span>
-			</div>
-			<div class="item">
-				<span><button type="submit">Login</button></span>
-			</div>
-			</div> -->
 
 
 
