@@ -33,7 +33,7 @@ public class ChefService {
 		
 	
 	@Transactional
-	public List<Buffet> getChetBuffet(Chef chef){
+	public List<Buffet> getChefBuffets(Chef chef){
 		return chefRepo.getAllChefBuffet(chef);
 	}
 	

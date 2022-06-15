@@ -16,4 +16,5 @@ public interface BuffetRepository extends CrudRepository<Buffet, Long>{
 	public List<Buffet> buffetPerChef(@Param("nomeChef")String nomeChef,@Param("cognomeChef")String cognomeChef);
 	
 	
+	
 }

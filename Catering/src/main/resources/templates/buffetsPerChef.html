@@ -23,6 +23,7 @@
 	</div>
 
 	<div class="white">
+		<h1 class="titolo" th:text="${chef.nome} + ' ' + ${chef.cognome}"></h1>
 		<table class="table">
 			<thead>
 				<tr>
@@ -32,14 +33,12 @@
 					<th th:text="#{list.description}">Descrizione</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr th:if="${buffets.empty}">
+			 <tbody>
+				<tr th:if="${chef.buffets.empty}">
 					<td colspan="4">No Buffets Available</td>
 				</tr>
 
-				<tr th:each="buffet : ${buffets}">
-
-					<td th:text="${buffet.chef.nome} +' '+ ${buffet.chef.cognome}">Nome</td>
+				<tr th:each="buffet : ${chef.buffets}">
 
 					<td th:text="${buffet.nome}">Nome</td>
 
@@ -52,7 +51,7 @@
 
 				</tr>
 
-			</tbody>
+			</tbody> 
 		</table>
 	</div>
 

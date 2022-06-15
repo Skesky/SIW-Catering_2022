@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Buffet;
+import it.uniroma3.siw.model.Chef;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.ChefService;
 import it.uniroma3.siw.validator.BuffetValidator;
@@ -31,6 +32,13 @@ public class BuffetController {
 		model.addAttribute("buffets",buffetService.findAllBuffet());
 		
 		return "admin/buffets";
+	}
+	
+	@GetMapping("/buffets")
+	public String showAllBuffetsUsers(Model model) {
+		model.addAttribute("buffets",buffetService.findAllBuffet());
+		
+		return "buffets";
 	}
 	
 	@GetMapping("/admin/removeBuffet/{id}")
@@ -67,9 +75,17 @@ public class BuffetController {
 			return "admin/buffet";
 		}
 		
-		
 		return "admin/insertBuffet";
 		
 	}
+	
+	@GetMapping("/chefBuffets/{id}")
+	public String buffetForChef(@PathVariable("id") Long id, Model model) {
+		
+			model.addAttribute("chef", chefService.findChefById(id));
+			
+			return "buffetsPerChef";
+	}
+	
 
 }

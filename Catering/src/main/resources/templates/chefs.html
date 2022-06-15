@@ -34,7 +34,7 @@
 			</thead>
 			<tbody>
 				<tr th:if="${chefs.isEmpty()}">
-					<td colspan="3">No Buffets Available</td>
+					<td colspan="4">No Buffets Available</td>
 				</tr>
 
 				<tr th:each="chef : ${chefs}">
@@ -43,7 +43,9 @@
 					<td th:text="${chef.cognome}">Cognome</td>
 
 					<td th:text="${chef.nazionalita}">Nazionalita</td>
-
+					
+					<td><a th:href="@{'chefBuffets' + '/' + ${chef.id}}"
+								th:text="#{form.name}">Buffet dello Chef</a> </td>
 				</tr>
 
 			</tbody>
