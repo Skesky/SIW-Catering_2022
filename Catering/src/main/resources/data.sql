@@ -2,7 +2,7 @@
 
 /*Users*/
 insert into users(id, nome, cognome ) values('1000','admin','admin');
-insert into users(id, nome, cognome ) values('1001','user','user');
+insert into users(id, nome, cognome ) values('1001','Mario','Rossi');
 
 /*Credentials (le password sono: "password". Esse sono realizzate tramite il metodo encode della classe BCryptPasswordEncoder)*/
 insert into credentials(id, password, role, username, user_id ) values('2000', '$2a$10$H90gDy3sDjHh64GqNIimseg0wifDVWpLpDednMiqWAUSae5SLwvzO' ,'ADMIN','admin', '1000');

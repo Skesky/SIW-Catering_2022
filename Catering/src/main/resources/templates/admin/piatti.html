@@ -9,7 +9,7 @@
 
 <link href="/css/list.css" rel="stylesheet">
 <link rel="icon" href="/images/cloche.ico" type="image/x-icon">
-<title th:text="#{chefs}">Chefs</title>
+<title th:text="#{dishes}">Dishes</title>
 </head>
 
 <body>
@@ -22,36 +22,31 @@
 
 	</div>
 
-	<div class="white" >
-		<h1 class="titolo" th:text="#{chefs}">Lista degli chef</h1>
+	<div class="white">
+		<h1 class="titolo" th:text="${buffet.nome}"></h1>
 		<table class="table">
 			<thead>
 				<tr>
-					<th th:text="#{name.message}">Nome</th>
-					<th th:text="#{surname.message}">Cognome</th>
-					<th th:text="#{nationality.message}">Nazionalita</th>
+					<th th:text="#{name.message}">Chef</th>
+					<th th:text="#{description.message}">Descrizione</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr th:if="${chefs.isEmpty()}">
-					<td colspan="4">No Chefs Available</td>
+			 <tbody>
+				<tr th:if="${buffet.piatti.empty}">
+					<td colspan="2">No Dishes Available</td>
 				</tr>
 
-				<tr th:each="chef : ${chefs}">
-					<td th:text="${chef.nome}">Nome</td>
+				<tr th:each="piatto : ${buffet.piatti}">
 
-					<td th:text="${chef.cognome}">Cognome</td>
+					<td th:text="${piatto.nome}">Nome</td>
 
-					<td th:text="${chef.nazionalita}">Nazionalita</td>
-					
-					<td><a th:href="@{'chefBuffets' + '/' + ${chef.id}}"
-								th:text="#{buffetPerChef.message}">Buffet dello Chef</a> </td>
+					<td th:text="${piatto.descrizione}">Nazionalita</td>
+
 				</tr>
 
-			</tbody>
+			</tbody> 
 		</table>
 	</div>
+
 </body>
 </html>
-
-
