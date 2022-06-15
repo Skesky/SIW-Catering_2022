@@ -44,7 +44,7 @@
 
 					<td th:text="${chef.nazionalita}">Nazionalita</td>
 					
-					<td><a th:href="@{'chefBuffets' + '/' + ${chef.id}}"
+					<td><a class="button" th:href="@{'chefBuffets' + '/' + ${chef.id}}"
 								th:text="#{buffetPerChef.message}">Buffet dello Chef</a> </td>
 				</tr>
 

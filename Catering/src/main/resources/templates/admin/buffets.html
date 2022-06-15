@@ -49,12 +49,12 @@
 
 					<td th:text="${buffet.descrizione}">Nazionalita</td>
 
-					<td><a
+					<td><a class="button"
 						th:href="@{'/admin' + '/' +'removeBuffet' + '/' + ${buffet.id}}"
 								th:text="#{remove.button}">Rimuovi</a>
-						<a class="button"
+						<!-- <a class="button"
 						th:href="@{'/buffetDishes' + '/' + ${buffet.id}}"
-								th:text="#{dishPerBuffet.message}">Edit</a> 
+								th:text="#{dishPerBuffet.message}">Edit</a> --> 
 
 					</td>
 				</tr> 

@@ -45,7 +45,7 @@
 
 					<td th:text="${chef.nazionalita}">Nazionalitá</td>
 
-					<td><a
+					<td><a class="button"
 						th:href="@{'/admin' + '/' +'removeChef' + '/' + ${chef.id}}"
 								th:text="#{remove.button}">Rimuovi</a>
 						<a class="button"
