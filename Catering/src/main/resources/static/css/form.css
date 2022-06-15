@@ -1,5 +1,4 @@
 body{
- 	background-color: #370f68; 
 	background-image: url(/image/servizio-catering.jpg);
 }
 
@@ -44,7 +43,6 @@ body{
 	flex-direction: column;
 	margin-top: 17%;
 	align-items: center; 
-	backdrop-filter: blur(50px);
 	justify-content: space-around;
 }
 
