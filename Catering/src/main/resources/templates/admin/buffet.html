@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/list.css" rel="stylesheet">
-<!-- <link rel="icon" href="/images/cloche.ico" type="image/x-icon"> -->
+<link rel="icon" href="/image/catering-logo.ico" type="image/x-icon">
 <title>Buffet</title>
 </head>
 
@@ -33,9 +33,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!--<tr th:if="${chef.isEmpty()}">
-					<td colspan="3">No Buffets Available</td>
-				</tr>-->
 
 				<tr >
 					<td th:text="${buffet.nome}">Nome</td>
@@ -59,19 +56,4 @@
 </body>
 
 </html>
-
-<!-- <div>
-		<h4>Dettagli dello chef da te inserito:</h4>
-		<ul class="list">
-			<li><span th:text="#{chefname.message}+' '+${chef.nome}">Paolo</span></li>
-			<li><span th:text="#{chefsurname.message}+' '+${chef.cognome}">Rossi</span></li>
-			<li><span
-				th:text="#{chefnationality.message}+' '+${chef.nazionalita}">neozelandese</span></li>
-		</ul>
-
-		<div>
-			<a class="link" th:href="@{/admin/chefs}" th:text="#{cheflist.message}">Lista
-				degli chef</a>
-		</div>
-	</div> -->
 

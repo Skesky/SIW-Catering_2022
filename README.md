@@ -15,6 +15,7 @@
 - Cancellazione buffet
 - Visualizzazione buffet
 - Visualizzazione chef
+- Visualizzazione piatti
 
 
 
@@ -23,4 +24,5 @@
 - Visualizzazione buffet
 - Visualizzazione chef
 - Visualizzazione buffet di uno chef
-- Visualizzazione degli ingredienti di un buffet
+- Visualizzazione degli piatti di un buffet
+- Visualizzazione ingredienti per piatto

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="/css/form.css" rel="stylesheet">
-<!-- <link rel="icon" href="/images/cloche.ico" type="image/x-icon"> -->
+<link rel="icon" href="/image/catering-logo.ico" type="image/x-icon">
 <title th:text="#{insertBuffet}">Insert Buffet</title>
 </head>
 
@@ -45,12 +45,6 @@
 						<td> <select id="selettore"  th:field="*{chef}">
 						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
 					</select></td>
-					</tr>
-					<tr>
-					
-						<td> <label for="checklist">Piatti:</label></td> 
-						<td id="checklist" th:each="piatto : ${dishes}">
-						<input type="checkbox"  th:field="*{piatti}" th:value="${piatto.id}" th:text="${piatto.nome}" /></td> 	
 					</tr>
 					
 				</table>
