@@ -20,7 +20,7 @@ public class Piatto {
 	
 	private String descrizione;
 	
-	@OneToMany(cascade = CascadeType.PERSIST)
+	@OneToMany//(cascade = CascadeType.PERSIST)
 	List<Ingrediente> ingredienti;
 
 	public Long getId() {

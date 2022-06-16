@@ -25,7 +25,7 @@ public class Chef {
 	
 	private String nazionalita;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+	@OneToMany//(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
 	private List<Buffet> buffets;
 
 	public Long getId() {

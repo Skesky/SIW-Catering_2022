@@ -1,5 +1,7 @@
 package it.uniroma3.siw.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,4 +20,10 @@ public class IngredienteService {
 	public Ingrediente save(Ingrediente ingrediente) {
 		return ingredienteRepo.save(ingrediente);
 	}
+	
+	@Transactional
+	public List<Ingrediente> findAllIngredients(){
+		return (List<Ingrediente>)this.ingredienteRepo.findAll();
+	}
+	
 }

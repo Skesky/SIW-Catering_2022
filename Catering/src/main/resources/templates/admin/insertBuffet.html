@@ -46,6 +46,15 @@
 						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
 					</select></td>
 					</tr>
+					<tr>
+						<td> <label> Piatti</label></td>
+						<td>
+							<input th:type="checkbox" th:each="piatto : ${piatti}"
+									th:field="${buffet.piatti}" th:value="${piatto.id}" th:text="${piatto.nome}"						
+						
+									/></td>
+					
+					</tr>
 				</table>
 
 				<div class="button-div">

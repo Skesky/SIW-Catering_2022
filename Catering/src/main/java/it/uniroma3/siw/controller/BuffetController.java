@@ -1,5 +1,8 @@
 package it.uniroma3.siw.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +11,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Buffet;
 import it.uniroma3.siw.model.Chef;
+import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.ChefService;
+import it.uniroma3.siw.service.PiattoService;
 import it.uniroma3.siw.validator.BuffetValidator;
 
 @Controller
@@ -23,6 +29,9 @@ public class BuffetController {
 	
 	@Autowired
 	ChefService chefService;
+	
+	@Autowired
+	PiattoService piattoService;	
 	
 	@Autowired
 	BuffetValidator buffetValidator;
@@ -43,7 +52,9 @@ public class BuffetController {
 	
 	@GetMapping("/admin/removeBuffet/{id}")
 	public String removeBuffet(@PathVariable("id") Long id, Model model) {
-		buffetService.deleteById(id);
+		Chef chef = buffetService.findBuffetById(id).getChef();
+		chef.getBuffets().remove(this.buffetService.findBuffetById(id));
+		this.buffetService.deleteById(id);
 		model.addAttribute("buffets", buffetService.findAllBuffet());
 		
 		return "admin/buffets";
@@ -82,16 +93,18 @@ public class BuffetController {
 	}
 	
 	@PostMapping("/admin/insertBuffet")
-	public String inserimentoBuffet(@ModelAttribute("buffet") Buffet buffet, 
+	public String inserimentoBuffet(@ModelAttribute("buffet") Buffet buffet,
 			BindingResult buffetBindingResults, Model model) {
 		this.buffetValidator.validate(buffet, buffetBindingResults);
 		
 		if(!buffetBindingResults.hasErrors()) {
-			model.addAttribute("buffet", buffet);
-			buffetService.save(buffet);
+				model.addAttribute("buffet", buffet);
+				buffetService.save(buffet);
+				
+				return "admin/buffet";
 			
-			return "admin/buffet";
 		}
+		model.addAttribute("chefs", chefService.getAllChefs());
 		
 		return "admin/insertBuffet";
 		

@@ -9,7 +9,7 @@
 
 <link href="/css/list.css" rel="stylesheet">
 <link rel="icon" href="/images/cloche.ico" type="image/x-icon">
-<title th:text="#{dishes}">Dishes</title>
+<title th:text="#{chefs}">Chefs</title>
 </head>
 
 <body>
@@ -22,33 +22,34 @@
 
 	</div>
 
-	<div class="white">
-		<h1 class="titolo" th:text="${buffet.nome}"></h1>
+	<div class="white" >
+		<h1 class="titolo" th:text="#{ingredients}">Lista degli chef</h1>
 		<table class="table">
 			<thead>
 				<tr>
-					<th th:text="#{name.message}">Chef</th>
+					<th th:text="#{name.message}">Nome</th>
+					<th th:text="#{origin.message}">Origine</th>
 					<th th:text="#{description.message}">Descrizione</th>
 				</tr>
 			</thead>
-			 <tbody>
-				<tr th:if="${buffet.piatti.empty}">
-					<td colspan="2">No Dishes Available</td>
+			<tbody>
+				<tr th:if="${piatto.ingredienti.isEmpty()}">
+					<td colspan="4">No Ingredients Available</td>
 				</tr>
 
-				<tr th:each="piatto : ${buffet.piatti}">
+				<tr th:each="ingrediente : ${piatto.ingredienti}">
+					<td th:text="${ingrediente.nome}">Nome</td>
 
-					<td th:text="${piatto.nome}">Nome</td>
+					<td th:text="${ingrediente.origine}">Origine</td>
 
-					<td th:text="${piatto.descrizione}">Nazionalita</td>
-					
-					<td><a class="button" th:href="@{'/ingredienti' + '/' + ${piatto.id} }" th:text="#{dishIngredient.button}"></a></td>
-
+					<td th:text="${ingrediente.descrizione}">Descrizione</td>
+				
 				</tr>
 
-			</tbody> 
+			</tbody>
 		</table>
 	</div>
-
 </body>
 </html>
+
+
