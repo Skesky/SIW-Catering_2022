@@ -4,6 +4,9 @@
 
 ![](classDiagram-catering.svg)
 
+## Deployed dell'applicazione
+[Vedi l'applicazione a questo link](https://siw-catering.herokuapp.com/)
+
 ## Casi d'uso
 
 ### Admin

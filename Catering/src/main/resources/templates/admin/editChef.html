@@ -22,7 +22,7 @@
 	<div class="flex-container">
 		<form th:action="@{'/admin' + '/' +'editChef' + '/' + ${chef.id}}" method="post">
 			<div class="box">
-				<h1 id="l-title" th:text="#{header-register}">Registrati</h1>
+				<h1 id="l-title" th:text="#{header-editChef}">Registrati</h1>
 				<div class="form-line">
 					<span th:text="#{name.message}">Nome:</span> <span><input th:value="${chef.nome}"
 						name="name" type="text" th:placeholder="#{placeholder-name}"
