@@ -66,8 +66,7 @@ div {
     height: 200px;
     text-align: center;
     border-collapse: collapse;
-    /*table-layout: fixed;*/
-    table-layout: auto;
+    table-layout: fixed;
 }
 tr{
 	height: 50px;
