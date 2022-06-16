@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Buffet;
-import it.uniroma3.siw.model.Chef;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.ChefService;
+import it.uniroma3.siw.service.PiattoService;
 import it.uniroma3.siw.validator.BuffetValidator;
 
 @Controller
@@ -23,6 +23,9 @@ public class BuffetController {
 	
 	@Autowired
 	ChefService chefService;
+	
+	@Autowired
+	PiattoService piattoService;
 	
 	@Autowired
 	BuffetValidator buffetValidator;
@@ -78,6 +81,7 @@ public class BuffetController {
 	public String insertBuffet(Model model) {
 		model.addAttribute("buffet", new Buffet());
 		model.addAttribute("chefs", chefService.getAllChefs());
+		model.addAttribute("piatti", piattoService.findAllPiatti());
 		return "admin/insertBuffet";
 	}
 	
@@ -92,6 +96,9 @@ public class BuffetController {
 			
 			return "admin/buffet";
 		}
+		
+		model.addAttribute("chefs", chefService.getAllChefs());
+		model.addAttribute("piatti", piattoService.findAllPiatti());
 		
 		return "admin/insertBuffet";
 		

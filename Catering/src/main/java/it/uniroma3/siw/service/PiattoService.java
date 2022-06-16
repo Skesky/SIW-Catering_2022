@@ -1,5 +1,7 @@
 package it.uniroma3.siw.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,12 @@ public class PiattoService {
 	@Transactional
 	public Piatto aggiungiPiatto(Piatto piatto) {
 		return piattoRepo.save(piatto);
+	}
+	
+	@Transactional
+	public List<Piatto> findAllPiatti(){
+		
+		return (List<Piatto>) piattoRepo.findAll();
 	}
 	
 	
