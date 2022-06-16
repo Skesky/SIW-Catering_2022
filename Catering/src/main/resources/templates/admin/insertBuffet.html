@@ -47,14 +47,12 @@
 					</select></td>
 					</tr>
 					<tr>
-						<td> <label> Piatti</label></td>
-						<td>
-							<input th:type="checkbox" th:each="piatto : ${piatti}"
-									th:field="${buffet.piatti}" th:value="${piatto.id}" th:text="${piatto.nome}"						
-						
-									/></td>
 					
+						<td> <label for="checklist">Piatti:</label></td> 
+						<td id="checklist" th:each="piatto : ${dishes}">
+						<input type="checkbox"  th:field="*{piatti}" th:value="${piatto.id}" th:text="${piatto.nome}" /></td> 	
 					</tr>
+					
 				</table>
 
 				<div class="button-div">
@@ -70,43 +68,4 @@
 </body>
 
 </html>
-
-
-<!-- <form th:action="@{/admin/insertBuffet}" method="post" th:object="${buffet}">
-			<div class="box">
-				<h1 id="l-title" th:text="#{header-insertBuffet}">Registrati</h1>
-				<div th:if="${#fields.hasGlobalErrors()}" > 
-					 <p  th:each="err : ${#fields.globalErrors()}" th:text="${err}"> Errori</p> 
-				</div> 
-				<div class="form-line">
-					<span th:text="#{name.message}">Nome:</span> <span><input
-						name="name" type="text" th:placeholder="#{placeholder-name}"
-						th:field="${buffet.nome}" required /></span>
-				</div>
-				<div class="form-line">
-					<span th:text="#{category.message}">Categoria:</span> <span><input
-						name="category" type="text"
-						th:placeholder="#{placeholder-category}" required
-						th:field="${buffet.categoria}" /> </span>
-				</div>
-				<div class="form-line">
-					<span th:text="#{description.message}">Descrizione:</span> <span><input
-						name="description" type="text"
-						th:placeholder="#{placeholder-desription}" required
-						th:field="${buffet.descrizione}" /> </span>
-				</div>
-				 <div class="form-line" >
-				 	<label th:for="selettore" th:text="#{chef.message}"> </label>
-					<select id="selettore"  th:field="*{chef}">
-						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
-					</select>
-				</div> 
-
-				<div class="button">
-					<span><button type="submit"
-							th:text="#{confirm.button}">Conferma</button></span>
-				</div>
-			</div>
-		</form> -->
-
 

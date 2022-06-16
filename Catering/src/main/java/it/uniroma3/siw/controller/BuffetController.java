@@ -89,6 +89,7 @@ public class BuffetController {
 	public String insertBuffet(Model model) {
 		model.addAttribute("buffet", new Buffet());
 		model.addAttribute("chefs", chefService.getAllChefs());
+		model.addAttribute("dishes", piattoService.findAllPiatti());
 		return "admin/insertBuffet";
 	}
 	
@@ -105,7 +106,7 @@ public class BuffetController {
 			
 		}
 		model.addAttribute("chefs", chefService.getAllChefs());
-		
+		model.addAttribute("dishes", piattoService.findAllPiatti());
 		return "admin/insertBuffet";
 		
 	}

@@ -23,20 +23,20 @@
 	</div>
 
 	<div class="white">
-		<h1 class="titolo" th:text="${buffet.nome}"></h1>
+		<h1 class="titolo" th:text="#{dishes}"></h1>
 		<table class="table">
 			<thead>
 				<tr>
-					<th th:text="#{name.message}">Chef</th>
+					<th th:text="#{name.message}">Nome</th>
 					<th th:text="#{description.message}">Descrizione</th>
 				</tr>
 			</thead>
 			 <tbody>
-				<tr th:if="${buffet.piatti.empty}">
+				<tr th:if="${piatti.empty}">
 					<td colspan="2">No Dishes Available</td>
 				</tr>
 
-				<tr th:each="piatto : ${buffet.piatti}">
+				<tr th:each="piatto : ${piatti}">
 
 					<td th:text="${piatto.nome}">Nome</td>
 

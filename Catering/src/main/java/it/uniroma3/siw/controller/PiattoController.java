@@ -9,15 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import it.uniroma3.siw.model.Credentials;
-import it.uniroma3.siw.model.User;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.CredentialsService;
+import it.uniroma3.siw.service.PiattoService;
 
 @Controller
 public class PiattoController {
 	
 	@Autowired
 	BuffetService buffetService;
+	
+	@Autowired
+	PiattoService piattoService;
 	
 	@Autowired
 	CredentialsService credentialsService;
@@ -36,6 +39,13 @@ public class PiattoController {
 			
 			
 			return "piattiPerBuffet";
+	}
+	
+	@GetMapping("/admin/piatti")
+	public String allDishes(Model model) {
+		model.addAttribute("piatti", piattoService.findAllPiatti());
+		
+		return "admin/piatti";
 	}
 
 }
