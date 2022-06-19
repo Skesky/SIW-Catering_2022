@@ -27,5 +27,9 @@ public class PiattoService {
 		return (List<Piatto>) piattoRepo.findAll();
 	}
 	
+	@Transactional
+	public Piatto findPiattoById(Long id) {
+		return this.piattoRepo.findById(id).get();
+	}
 	
 }

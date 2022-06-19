@@ -49,8 +49,8 @@
 					<tr>
 					
 						<td> <label for="checklist">Piatti:</label></td> 
-						<td id="checklist" th:each="piatto : ${dishes}">
-						<input type="checkbox"  th:field="*{piatti}" th:value="${piatto.id}" th:text="${piatto.nome}" /></td> 	
+						<td id="checklist" th:each="piatto : ${piatti}">
+						<input type="checkbox"  name="dishList" th:value="${piatto.id}" th:text="${piatto.nome}" /></td> 	
 					</tr>
 				</table>
 
@@ -68,7 +68,7 @@
 
 </html>
 
-
+<!-- th:field="*{piatti}" -->
 <!-- <form th:action="@{/admin/insertBuffet}" method="post" th:object="${buffet}">
 			<div class="box">
 				<h1 id="l-title" th:text="#{header-insertBuffet}">Registrati</h1>

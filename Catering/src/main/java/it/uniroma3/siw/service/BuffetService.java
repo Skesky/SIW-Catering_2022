@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.model.Buffet;
 import it.uniroma3.siw.model.Chef;
+import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.repository.BuffetRepository;
 
 @Service

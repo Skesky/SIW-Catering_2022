@@ -1,5 +1,8 @@
 package it.uniroma3.siw.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.model.Buffet;
+import it.uniroma3.siw.model.Piatto;
 import it.uniroma3.siw.service.BuffetService;
 import it.uniroma3.siw.service.ChefService;
 import it.uniroma3.siw.service.PiattoService;
@@ -86,13 +91,24 @@ public class BuffetController {
 	}
 	
 	@PostMapping("/admin/insertBuffet")
-	public String inserimentoBuffet(@ModelAttribute("buffet") Buffet buffet, 
+	public String inserimentoBuffet(@ModelAttribute("buffet") Buffet buffet, @RequestParam(name = "dishList") List<Long> ids,
 			BindingResult buffetBindingResults, Model model) {
+		System.out.println(ids.toString() + "\n\n\n\n\n\n\n");
+		System.out.println(buffet.getId() + "\n\n\n\n\n\n\n");
+		Buffet b = new Buffet();
+		System.out.println(b.getId() + "\n\n\n\n\n\n\n");
+		List<Piatto> list = new ArrayList<>();
+		//buffet.setPiatti(list);
+		
+		buffet.setPiatti(list);
+		for(Long id : ids) {
+			buffet.getPiatti().add(this.piattoService.findPiattoById(id));
+		}
 		this.buffetValidator.validate(buffet, buffetBindingResults);
 		
 		if(!buffetBindingResults.hasErrors()) {
-			model.addAttribute("buffet", buffet);
-			buffetService.save(buffet);
+			model.addAttribute("buffet", buffetService.save(buffet));
+			
 			
 			return "admin/buffet";
 		}

@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -30,7 +29,8 @@ public class Buffet {
 	@ManyToOne
 	private Chef chef;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+	
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
 	fetch = FetchType.EAGER)
 	private List<Piatto> piatti;
 
