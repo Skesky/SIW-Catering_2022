@@ -22,9 +22,20 @@ public class BuffetService {
 	private ChefService chefService;
 	
 	@Transactional
+	public Buffet save(Buffet buffet, List<Piatto> list) {
+		Chef chef = chefService.findChefById(buffet.getChef().getId());
+		chef.getBuffets().add(buffet);
+		Buffet b= buffetRepo.save(buffet);
+		b.setPiatti(list);
+		return b;
+	}
+	
+	@Transactional
 	public Buffet save(Buffet buffet) {
 		Chef chef = chefService.findChefById(buffet.getChef().getId());
 		chef.getBuffets().add(buffet);
+		 
+		
 		return buffetRepo.save(buffet);
 	}
 	
