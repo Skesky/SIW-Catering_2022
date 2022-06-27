@@ -23,98 +23,102 @@ import it.uniroma3.siw.validator.BuffetValidator;
 
 @Controller
 public class BuffetController {
-	
+
 	@Autowired
 	BuffetService buffetService;
-	
+
 	@Autowired
 	ChefService chefService;
-	
+
 	@Autowired
 	PiattoService piattoService;	
-	
+
 	@Autowired
 	BuffetValidator buffetValidator;
-	
+
 	@GetMapping("/admin/buffets")
 	public String showAllBuffets(Model model) {
 		model.addAttribute("buffets",buffetService.findAllBuffet());
-		
+
 		return "admin/buffets";
 	}
-	
+
 	@GetMapping("/buffets")
 	public String showAllBuffetsUsers(Model model) {
 		model.addAttribute("buffets",buffetService.findAllBuffet());
-		
+
 		return "buffets";
 	}
-	
+
 	@GetMapping("/admin/removeBuffet/{id}")
 	public String removeBuffet(@PathVariable("id") Long id, Model model) {
 		Chef chef = buffetService.findBuffetById(id).getChef();
 		chef.getBuffets().remove(this.buffetService.findBuffetById(id));
 		this.buffetService.deleteById(id);
 		model.addAttribute("buffets", buffetService.findAllBuffet());
-		
+
 		return "admin/buffets";
 	}
-	
+
 	@GetMapping("/admin/editBuffet/{id}")
 	public String editBuffet(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("buffet", buffetService.findBuffetById(id));
 		model.addAttribute("chefs", chefService.getAllChefs());
-		
+		model.addAttribute("dishes", this.piattoService.findAllPiatti());
 		return "admin/editBuffet";
 	}
-	
+
 	@PostMapping("/admin/editBuffet/{id}")
-	public String saveEditedBuffet(@PathVariable("id") Long id, @ModelAttribute("buffet") Buffet buffet , Model model) {
+	public String saveEditedBuffet(@PathVariable("id") Long id, 
+									@RequestParam("piatti") List<Piatto> piatti,
+									@ModelAttribute("buffet") Buffet buffet , Model model) {
 		Buffet originalBuffet = buffetService.findBuffetById(id);
-		
+
 		originalBuffet.setId(buffet.getId());
 		originalBuffet.setNome(buffet.getNome());
 		originalBuffet.setCategoria(buffet.getCategoria());
 		originalBuffet.setDescrizione(buffet.getDescrizione());
+		originalBuffet.getChef().getBuffets().remove(originalBuffet);
 		originalBuffet.setChef(buffet.getChef());
-		//chef.getBuffets().add(buffet);
+		originalBuffet.setPiatti(piatti);
+
 		buffetService.save(originalBuffet);
-		
+
 		model.addAttribute("buffets", buffetService.findAllBuffet());
-		
+
 		return "admin/buffets";
 	}
-	
+
 	@GetMapping("/admin/insertBuffet")
 	public String insertBuffet(Model model) {
 		model.addAttribute("buffet", new Buffet());
 		model.addAttribute("chefs", chefService.getAllChefs());
 		return "admin/insertBuffet";
 	}
-	
+
 	@PostMapping("/admin/insertBuffet")
 	public String inserimentoBuffet(@ModelAttribute("buffet") Buffet buffet,
 			BindingResult buffetBindingResults, Model model) {
 		this.buffetValidator.validate(buffet, buffetBindingResults);
-		
+
 		if(!buffetBindingResults.hasErrors()) {
-				model.addAttribute("buffet", buffet);
-				buffetService.save(buffet);
-				
-				return "admin/buffet";
-			
+			model.addAttribute("buffet", buffet);
+			buffetService.save(buffet);
+
+			return "admin/buffet";
+
 		}
 		return "admin/insertBuffet";
-		
+
 	}
-	
+
 	@GetMapping("/chefBuffets/{id}")
 	public String buffetForChef(@PathVariable("id") Long id, Model model) {
-		
-			model.addAttribute("chef", chefService.findChefById(id));
-			
-			return "buffetsPerChef";
+
+		model.addAttribute("chef", chefService.findChefById(id));
+
+		return "buffetsPerChef";
 	}
-	
+
 
 }

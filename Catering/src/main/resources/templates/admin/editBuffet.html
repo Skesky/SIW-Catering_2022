@@ -22,7 +22,39 @@
 		<div class="box">
 			<form th:action="@{'/admin' + '/' +'editBuffet' + '/' + ${buffet.id}}" method="post" th:object="${buffet}">
 			<table>
+				<tr>
+						<td th:text="#{name.message}"> Nome</td>
+						<td><label><input name="name" type="text" th:placeholder="#{placeholder-name}"
+						th:field="*{nome}" required></label></td>
+					</tr>
+					<tr>
+						<td th:text="#{category.message}"> Nome</td>
+						<td><label><input name="category" type="text" th:placeholder="#{placeholder-category}" required
+						th:field="*{categoria}"></label></td>
+					</tr>
+					<tr>
+					<td th:text="#{description.message}"> Nome</td>
+						<td><label><input name="description" type="text"
+						th:placeholder="#{placeholder-desription}" required
+						th:field="*{descrizione}"></label></td>
+					</tr>
+					<tr>
+						<td> <label th:for="selettore" th:text="#{chef.message}"> </label></td>
+						<td> <select id="selettore"  th:field="*{chef}">
+						<option th:each="chef : ${chefs}" th:value="${chef.id}" th:text="${chef.nome} + ' ' + ${chef.cognome}"></option>
+					</select></td>
+					</tr>
+					<!-- COSE NUOOVE -->
+					<tr>
+						<td> Piatti da selezionare</td>
+						<td th:each="piatto : ${dishes}"><input type="checkbox"  th:value="${piatto.id}" th:text="${piatto.nome}" name="piatti"></td>
+					</tr>
+					<!-- COSE NUOOVE -->
 			</table>
+				<div class="button-div">
+					<span><button type="submit"
+							th:text="#{confirm.button}">Conferma</button></span>
+				</div>
 			</form>
 		
 		</div>
